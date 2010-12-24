@@ -1,0 +1,11 @@
+<%= form_for(@post, :remote => true) do |f| %>
+
+  <div class="field">
+    <%= f.text_field :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -1,6 +1,14 @@
 <h1>Listing notes</h1>
 <br /><br />
 
+<div id="post_form">
+  <%= render 'form' %>
+</div>
+
+<ul id="posts">
+  <%= render :partial => @notes.reverse %>
+</ul>
+
 <table>
 
   <tr>
@@ -17,7 +25,7 @@
       <td><%= note.content %></td>
       <td><%= link_to 'Show', note %></td>
       <td><%= link_to 'Edit', edit_note_path(note) %></td>
-      <td><%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
     </tr>
   <% end %>
 </table>

@@ -1,0 +1,3 @@
+$('#notes').prepend('<%= escape_javascript(render(@note)) %>');
+$('#notes > li:first').effect('highlight', {}, 3000);
+$('#note_form > form')[0].reset();

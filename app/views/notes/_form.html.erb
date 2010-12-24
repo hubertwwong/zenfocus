@@ -1,4 +1,5 @@
-<%= form_for(@note) do |f| %>
+<%= form_for(@note, :remote => true) do |f| %>
+  <!-- errors -->
   <% if @note.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
@@ -22,4 +23,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

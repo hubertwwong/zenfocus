@@ -1,0 +1,8 @@
+// update post.
+$('#posts').prepend('<%= escape_javascript(render(@post)) %>');
+
+// suppose to be some highlight but its not working
+$('#posts tbody tr:first').css('background', 'yellow');
+
+// this does not work either...
+$('#post_form > form')[0].reset();

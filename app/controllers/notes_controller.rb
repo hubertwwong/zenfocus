@@ -4,6 +4,9 @@ class NotesController < ApplicationController
   def index
     @notes = Note.all
 
+    # my stuff
+    @note = Note.new
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @notes }
@@ -46,6 +49,7 @@ class NotesController < ApplicationController
       if @note.save
         format.html { redirect_to(@note, :notice => 'Note was successfully created.') }
         format.xml  { render :xml => @note, :status => :created, :location => @note }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @note.errors, :status => :unprocessable_entity }
@@ -78,6 +82,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(notes_url) }
       format.xml  { head :ok }
+      format.js
     end
   end
 end

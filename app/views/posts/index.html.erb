@@ -1,0 +1,19 @@
+<h1>Posts</h1>
+
+<div id="post_form">
+  <%= render 'form' %>
+</div>
+
+<table id="posts">
+  <!-- labels for colums -->
+  <thead>
+    <th>task</th>
+    <th>date completed</th>
+    <th>options</th>
+  </thead>
+
+  <!-- table contents rendered in a partial called _post -->
+  <tbody>
+    <%= render :partial => @posts.reverse %>
+  </tbody>
+</table>
