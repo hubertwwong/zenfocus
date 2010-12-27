@@ -1,14 +1,35 @@
-table{
+table {
     padding: 0;
     margin: 0;
+
     border-collapse: collapse;
     border: 1px solid #aaa;
-    font-size: 0.9em;
-    color: #000;
 }
 
-th{padding: 5px}
+thead tr {
+    background: #fc9;
+}
 
-tr{}
+tbody {
+    padding: 5px
+}
 
-td{padding: 5px}
+tr {}
+
+td {padding: 5px}
+
+/* POST */
+
+table#posts {
+    width: 100%;
+}
+
+table#posts thead {}
+
+table#posts thead tr {}
+
+table#posts tbody {}
+
+table#posts tbody tr {}
+
+table#posts tbody tr td {}

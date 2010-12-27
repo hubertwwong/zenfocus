@@ -1,0 +1,16 @@
+<!-- current post -->
+<div id="post_current">
+
+  <% if @post_current_active %>
+    <h6>Current Task:</h6>
+    <%= @post_current_active.body %><br/>
+    <%= @post_current_active.completed_at %><br/>
+    <%= Time.now.utc %>
+    <%= @post_current_active.completed_at > Time.now.utc %>
+  <% end %>
+
+  <% if not @post_current_active %>
+    POST CURRENT IS NILLLL
+  <%end %>
+
+</div>

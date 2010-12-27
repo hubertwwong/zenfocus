@@ -4,6 +4,24 @@ class Post < ActiveRecord::Base
 
   before_save :parse_time
 
+  # current active
+  #
+  # determines if the most recent task is active.
+  # if it is, return it. if it is not, return nil.
+  # need to nil check..
+  def current_active?
+    current_post = Post.last
+
+    # makes 2 checks.
+    # 1. if the item isn't nil. (sanity check)
+    # 2. if the task timed out yet. completed time > time now.
+    if current_post != nil and current_post.completed_at > Time.now.utc
+      current_post
+    else
+      nil
+    end
+  end
+
   # parse time
   #
   # method to parse the time value out of a string using some escape code.

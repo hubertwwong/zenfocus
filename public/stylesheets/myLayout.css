@@ -2,18 +2,28 @@
 note.
 padding seems to break the navigation for some reason..
 */
-div#navheader {  
-    background-color: #AAAAAA;
+div#nav_header {
+    margin-bottom: 20px;
 }
 
-div#navmain {
+/* if you need to tweak the the logo position. */
+p#nav_header_logo {
+    background-color: #67E300;
+}
+
+p#nav_header_links {
+    text-align: right;
+}
+
+div#nav_side {
 
 }
 
-div#navside {
-
+div#nav_footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-div#navfooter {  
-    background-color: #AAAAAA;
+p#nav_footer_links {
+    text-align: center;
 }

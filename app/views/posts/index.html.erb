@@ -1,15 +1,18 @@
-<h1>Posts</h1>
+<h3>Posts</h3>
 
-<div id="post_form">
-  <%= render 'form' %>
-</div>
+<%= render :partial => 'form' %>
+<%= render :partial => 'current' %>
+
+<br/><br/>
 
 <table id="posts">
   <!-- labels for colums -->
   <thead>
-    <th>task</th>
-    <th>date completed</th>
-    <th>options</th>
+    <tr>
+      <th>task</th>
+      <th>date completed</th>
+      <th>options</th>
+    </tr>
   </thead>
 
   <!-- table contents rendered in a partial called _post -->

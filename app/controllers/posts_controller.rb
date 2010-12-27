@@ -4,6 +4,9 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new
 
+    # load current active post if it exist.
+    @post_current_active = @post.current_active?
+
     respond_to do |format|
       format.html
     end
@@ -11,12 +14,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
-    
+
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(posts_url,
-                    :notice => 'Post was successfully created.') }
-        format.js
+        format.html {
+          redirect_to(posts_url, :notice => 'Post was successfully created.')
+        }
+        format.js {
+          # load current active post if it exist.
+          @post_current_active = @post.current_active?
+        }
       else
         format.html { redirect_to(posts_url) }
       end
@@ -29,7 +36,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(posts_url) }
-      format.js
+      format.js {
+        # load current active post if it exist.
+        @post_current_active = @post.current_active?
+      }
     end
   end
   

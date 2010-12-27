@@ -1,8 +1,13 @@
 // update post.
 $('#posts').prepend('<%= escape_javascript(render(@post)) %>');
 
-// suppose to be some highlight but its not working
-$('#posts tbody tr:first').css('background', 'yellow');
+// simple fade effect to show the first item is entered..
+$('#posts tbody tr:first').fadeTo('fast', '0.0');
+$('#posts tbody tr:first').fadeTo('slow', '1');
 
-// this does not work either...
+// clears out the form.
 $('#post_form > form')[0].reset();
+
+// need to delete and reload the div.
+$('#post_current').remove();
+$('#post_form').append('<%= escape_javascript(render :partial => 'current') %>');

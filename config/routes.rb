@@ -1,6 +1,13 @@
 Zenfocus::Application.routes.draw do
+  root :to => 'posts#index'
+
   resources :notes
   resources :posts
+  resources :static
+
+  # static routes
+  match 'about', :to => 'static#about'
+  match 'help', :to => 'static#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
