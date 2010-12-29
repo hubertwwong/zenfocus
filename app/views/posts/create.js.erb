@@ -1,5 +1,5 @@
 // update post.
-$('#posts').prepend('<%= escape_javascript(render(@post)) %>');
+$('#posts').prepend('<%= escape_javascript(render @post) %>');
 
 // simple fade effect to show the first item is entered..
 $('#posts tbody tr:first').fadeTo('fast', '0.0');
@@ -9,5 +9,7 @@ $('#posts tbody tr:first').fadeTo('slow', '1');
 $('#post_form > form')[0].reset();
 
 // need to delete and reload the div.
+// 1. deletes the div.
+// 2. load the div again after the text entry box which is right before the div.
 $('#post_current').remove();
-$('#post_form').append('<%= escape_javascript(render :partial => 'current') %>');
+$('#post_form').append('<%= escape_javascript(render 'current') %>');

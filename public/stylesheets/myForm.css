@@ -1,35 +1,13 @@
-/* the main form for user input */
-div#form_post_field {
-    padding: 5px;
-    padding-bottom: 20px;
-    margin: 0px;
-}
-
-div#form_post_field input#post_body{
-    width: 89%;
+/* the main form for user input into post */
+div#form_post_field input#post_body {
+    width: 100%;
     height: 50px;
     font-size: 200%;
     border: 1px solid #aaa;
 }
 
-div#form_post_field input#post_submit{
-    width: 9%;
+div#form_post_submit input#post_submit {
+    width: 100%;
     height: 54px;
-    float: right;
     border: 1px solid #aaa;
-}
-
-/* surrounding buttons with this div. */
-div#form_post_actions {
-    padding: 5px;
-    padding-bottom: 20px;
-    margin: 0px;
-}
-/* flat buttons. */
-div#form_post_actions input {
-   color: black;
-   background-color: #EEEEEE;
-   border-style: solid;
-   border-color: #BBBBBB;
-   border-width: 1px;
 }

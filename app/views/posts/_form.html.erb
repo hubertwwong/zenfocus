@@ -1,10 +1,16 @@
 <div id="post_form">
   <%= form_for(@post, :remote => true) do |f| %>
 
-    <div id="form_post_field">
+    <div id="form_post_field" class="grid_8 alpha">
       <%= f.text_field :body %>
+    </div>
+
+    <div id="form_post_submit" class="grid_1 omega">
       <%= f.submit 'Go' %>
     </div>
+    
+    <!-- 960px. indicates that row is complete. -->
+    <div class="clear"></div>
 
   <% end %>
 </div>

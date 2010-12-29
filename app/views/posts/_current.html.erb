@@ -1,16 +1,33 @@
+<!-- makes sure that there is a active post before using this div -->
+<% if @post_current_active %>
+
 <!-- current post -->
 <div id="post_current">
 
-  <% if @post_current_active %>
+  <!-- text of task -->
+  <div id="post_current_task_text" class="grid_6 alpha">
     <h6>Current Task:</h6>
-    <%= @post_current_active.body %><br/>
-    <%= @post_current_active.completed_at %><br/>
-    <%= Time.now.utc %>
-    <%= @post_current_active.completed_at > Time.now.utc %>
+    <p id="post_current_task_text_actual">
+      <%= @post_current_active.body %>
+    </p>
+  </div>
+
+  <!-- timer. -->
+  <div id="post_current_task_timer" class="grid_3 omega">
+    <h6>Complete in:</h6>
+    <p id="countbox"></p>
+  </div>
+
+  <!-- 960px. indicates that row is complete. -->
+  <div class="clear"></div>
+  
+  <!-- need to figure how to load the correct time -->
+  <% javascript_tag do %>
+  $(document).ready(function() {
+    countdown_secs( <%= @post_current_active.completed_at - Time.now.utc %> );
+  });
   <% end %>
 
-  <% if not @post_current_active %>
-    POST CURRENT IS NILLLL
-  <%end %>
-
 </div>
+
+<% end %>

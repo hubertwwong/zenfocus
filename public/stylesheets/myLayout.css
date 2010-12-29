@@ -1,12 +1,13 @@
 /*
-note.
-padding seems to break the navigation for some reason..
+    note.
+    padding seems to break the navigation for some reason..
+
+    below are some general layout items.
 */
 div#nav_header {
     margin-bottom: 20px;
 }
 
-/* if you need to tweak the the logo position. */
 p#nav_header_logo {
     background-color: #67E300;
 }
@@ -26,4 +27,14 @@ div#nav_footer {
 
 p#nav_footer_links {
     text-align: center;
+}
+
+/* contains text entry field for post.*/
+div#post_form {
+    margin-bottom: 40px;
+}
+
+/* display the current task. */
+div#post_current {
+    margin-bottom: 40px;
 }

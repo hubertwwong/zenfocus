@@ -1,22 +1,3 @@
-<h3>Posts</h3>
-
-<%= render :partial => 'form' %>
-<%= render :partial => 'current' %>
-
-<br/><br/>
-
-<table id="posts">
-  <!-- labels for colums -->
-  <thead>
-    <tr>
-      <th>task</th>
-      <th>date completed</th>
-      <th>options</th>
-    </tr>
-  </thead>
-
-  <!-- table contents rendered in a partial called _post -->
-  <tbody>
-    <%= render :partial => @posts.reverse %>
-  </tbody>
-</table>
+<%= render 'form' %>
+<%= render 'current' %>
+<%= render 'table' %>
