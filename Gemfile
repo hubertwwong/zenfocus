@@ -29,3 +29,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+# MY GEMS
+# ==============================================================================
+
+# Devise
+gem 'devise'
