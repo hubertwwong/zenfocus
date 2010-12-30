@@ -1,5 +1,7 @@
 Zenfocus::Application.routes.draw do
-  root :to => 'posts#index'
+  devise_for :users
+
+  root :to => 'static#index'
 
   resources :notes
   resources :posts
