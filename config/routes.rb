@@ -1,4 +1,6 @@
 Zenfocus::Application.routes.draw do
+  resources :dummies
+
   devise_for :users
 
   root :to => 'static#index'
