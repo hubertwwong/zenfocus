@@ -8,7 +8,15 @@
 <!-- login / registration -->
 <div class="grid_8" id="nav_header">
     <p id="nav_header_links">
-      login / register
+        <!-- devise login. -->
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+          <%= link_to 'log out' , '/users/sign_out/' %>
+        <% else %>
+          <%= link_to 'log in' , '/users/sign_in/' %>
+          |
+          <%= link_to 'register', '/users/sign_up/' %>
+        <% end %>
     </p>
 </div>
 

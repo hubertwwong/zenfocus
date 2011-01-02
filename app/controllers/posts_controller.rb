@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  # using devise authentication.
+  before_filter :authenticate_user!
 
   def index
     @posts = Post.all

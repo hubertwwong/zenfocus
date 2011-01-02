@@ -1,12 +1,16 @@
 <!-- FOOTER -->
 <div class="grid_12" id="nav_footer">
-  <p id="nav_footer_links">
-      <a href="http://localhost:3000/posts">zenfoc.us</a>
-      |
-      <a href="http://localhost:3000/about">about</a>
-      |
-      <a href="http://localhost:3000/help">help</a>
-  </p>
+    <p id="nav_footer_links">
+        <!--
+            putting "/" in front on the controller so it does not nest with
+            any other controller like devise.
+        -->
+        <%= link_to 'zenfoc.us' , :controller => '/posts', :action => 'index' %>
+        |
+        <%= link_to 'about' , :controller => '/static', :action => 'about' %>
+        |
+        <%= link_to 'help' , :controller => '/static', :action => 'help' %>
+    </p>
 </div>
 
 <div class="clear"></div>

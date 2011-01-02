@@ -11,5 +11,15 @@ class StaticController < ApplicationController
       format.html
     end
   end
+
+  def index
+    if user_signed_in?
+      redirect_to :controller => "posts"
+    else
+      respond_to do |format|
+        format.html
+      end
+    end
+  end
   
 end
