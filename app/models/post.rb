@@ -56,4 +56,11 @@ class Post < ActiveRecord::Base
     
   end
 
+
+  # NOTE.
+  #
+  # columns in play.
+  # completed_task, completed_at, body.
+  #
+  # completed_task (0=no, 1=yes)
 end

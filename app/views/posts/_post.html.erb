@@ -3,4 +3,5 @@
   <td><%= post.completed_at %></td>
   <td>(<%= link_to 'Delete', post, :confirm => 'Are you sure?',
                 :method => :delete, :remote => true %>)</td>
+  <td><%= link_to 'update_completed_task', post, :remote => true %></td>
 <% end %>
