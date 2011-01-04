@@ -5,9 +5,12 @@ Zenfocus::Application.routes.draw do
 
   root :to => 'static#index'
 
-  resources :notes
-  resources :posts
+  # resources
   resources :static
+  resources :notes
+  resources :posts do
+    get 'vote', :as => :vote
+  end
 
   # static routes
   match 'about', :to => 'static#about'

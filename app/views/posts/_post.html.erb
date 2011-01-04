@@ -1,7 +1,14 @@
 <%= content_tag_for(:tr, post) do %>
+  <!-- using if/else block to determine if a tick / cross should be displayed -->
+  <% if post.completed_task == 1 %>
+    <td><%= image_tag("tick.png", :alt => "+") %></td>
+  <% else %>
+    <td><%= image_tag("cross.png", :alt => "X") %></td>
+  <% end %>
   <td><%= post.body %></td>
   <td><%= post.completed_at %></td>
-  <td>(<%= link_to 'Delete', post, :confirm => 'Are you sure?',
-                :method => :delete, :remote => true %>)</td>
-  <td><%= link_to 'update_completed_task', post, :remote => true %></td>
+  <td><%= link_to image_tag('delete.png'), post, :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+      <%= link_to image_tag('thumb_up.png'), post_path(:id => post.id, :completed_task => 1), :method => :put, :remote => true %>
+      <%= link_to image_tag('thumb_down.png'), post_path(:id => post.id, :completed_task => 0), :method => :put, :remote => true %>
+  </td>
 <% end %>

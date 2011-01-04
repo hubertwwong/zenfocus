@@ -3,7 +3,7 @@
 require 'builder/xmlmarkup'
 require 'benchmark'
 
-text = "This is a test of the new xml markup. Iñtërnâtiônàlizætiøn\n" * 10000
+text = "This is a test of the new xml markup. Iï¿½tï¿½rnï¿½tiï¿½nï¿½lizï¿½tiï¿½n\n" * 10000
 
 include Benchmark          # we need the CAPTION and FMTSTR constants
 include Builder

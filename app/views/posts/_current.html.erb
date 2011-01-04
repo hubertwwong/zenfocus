@@ -1,6 +1,3 @@
-<!-- makes sure that there is a active post before using this div -->
-<% if @post_current_active %>
-
 <!-- current post -->
 <div id="post_current">
 
@@ -24,10 +21,10 @@
   <!-- need to figure how to load the correct time -->
   <% javascript_tag do %>
   $(document).ready(function() {
-    countdown_secs( <%= @post_current_active.completed_at - Time.now.utc %> );
+    countdown_secs( 
+      <%= @post_current_active.completed_at - Time.now.utc %> 
+    );
   });
   <% end %>
 
 </div>
-
-<% end %>

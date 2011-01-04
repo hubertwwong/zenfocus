@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post = Post.new
 
     # load current active post if it exist.
-    @post_current_active = @post.current_active?
+    @post_current_active = @post.current
 
     respond_to do |format|
       format.html
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
+    @post.parse_time
 
     respond_to do |format|
       if @post.save
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
         }
         format.js {
           # load current active post if it exist.
-          @post_current_active = @post.current_active?
+          @post_current_active = @post.current
         }
       else
         format.html { redirect_to(posts_url) }
@@ -40,23 +41,27 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.js {
         # load current active post if it exist.
-        @post_current_active = @post.current_active?
+        @post_current_active = @post.current
       }
     end
   end
-  
+
+  # define a vote that a user makes on each post.
   def update
     @post = Post.find(params[:id])
+    Rails.logger.debug("date c" + @post.completed_at.to_s)
+    Rails.logger.debug("date u" + @post.updated_at.to_s)
+    @post.completed_task = params[:completed_task]
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to(@post,
-                      :notice => 'Post was successfully updated.') }
-        format.xml  { head :ok }
+      if @post.save
+        # refresh all post if the models was updated.
+        @posts = Post.all
+        format.html { redirect_to(posts_url, :notice => 'Post was successfully updated.') }
+        format.js
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @post.errors,
-                      :status => :unprocessable_entity }
+        format.html { redirect_to(posts_url) }
+        format.js
       end
     end
   end

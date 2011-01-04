@@ -26,7 +26,14 @@ table#posts {
 
 table#posts thead {}
 
-table#posts thead tr {}
+table#posts thead tr th#post_task_complete {width: 5%}
+
+table#posts thead tr th#post_task_text {width: 65%}
+
+table#posts thead tr th#post_task_date {width: 20%}
+
+table#posts thead tr th#post_task_options {width: 10%}
+
 
 table#posts tbody {}
 

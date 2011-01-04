@@ -9,8 +9,8 @@ function countdown_secs(fsec) {
     amount = fsec;
 
 	// time is already past
-	if(amount < 0){
-		document.getElementById('countbox').innerHTML="00 : 00";
+	if(amount <= 0){
+		document.getElementById('countbox').innerHTML="Times Up";
 	}
 	// date is still good
 	else{

@@ -1,21 +1,19 @@
 class Post < ActiveRecord::Base
 
-  validates_presence_of :body
-
-  before_save :parse_time
+  validates :body, :presence => true
 
   # current active
   #
   # determines if the most recent task is active.
   # if it is, return it. if it is not, return nil.
   # need to nil check..
-  def current_active?
+  def current
     current_post = Post.last
 
     # makes 2 checks.
     # 1. if the item isn't nil. (sanity check)
     # 2. if the task timed out yet. completed time > time now.
-    if current_post != nil and current_post.completed_at > Time.now.utc
+    if current_post != nil # and current_post.completed_at > Time.now.utc
       current_post
     else
       nil
@@ -27,6 +25,9 @@ class Post < ActiveRecord::Base
   # method to parse the time value out of a string using some escape code.
   # for now. i'm just assuming the first word of with the '+' prefix
   # will be used.
+  #
+  # buggy... sorta basically i don't want this to be called every time.
+  # just on update.
   def parse_time
     # add a default time for a task.
     length_of_task = Time.now + 15.minutes
